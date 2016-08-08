@@ -13,7 +13,7 @@ def _format_ucore_body(body):
     return urllib.urlencode(body)
 
 
-def post(url, body, header, mode="ucore", contentType=None,  **kwargs):
+def post(url, body={}, header={}, mode="ucore", contentType=None,  **kwargs):
     if "http" not in url:
         url = config.NGINX + url
     if mode == "normal":
@@ -47,7 +47,7 @@ def post(url, body, header, mode="ucore", contentType=None,  **kwargs):
         raise Exception("传入未知mode:{}".format(mode))
 
 
-def get(url, header, body, mode="ucore", contentType=None, **kwargs):
+def get(url, header={}, body={}, mode="ucore", contentType=None, **kwargs):
     if "http" not in url:
         url = config.NGINX + url
     if mode == "normal":
